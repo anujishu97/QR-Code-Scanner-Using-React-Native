@@ -23,6 +23,7 @@ class Main extends Component {
             })
         },3000)
     }
+    
     render() {
         const {currentScreen} = this.state
         let mainScreen= currentScreen === "Splash" ? <Splash/> : <App/>

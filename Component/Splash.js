@@ -10,11 +10,17 @@ export default class Splash extends Component {
             this.setState({ timer : this.state.timer + 1})
         },1000)
     }
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state,callback)=>{
+            return;
+        };
+    }
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.tittle}> QR CODE SCANNER </Text>
-                <Image style={styles.tittle} source={require('../Logo/ic_launcher.png')}></Image>
+                <Image source={require('../Logo/ic_launcher.png')}></Image>
             </View>
         )
     }
